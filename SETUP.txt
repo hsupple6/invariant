@@ -1,0 +1,168 @@
+FLUX ONE — WHAT YOU NEED TO ADD
+================================
+
+The site is a white, single-page landing page. It already runs.
+The front of the page is a full-width photograph. Drop the file
+in, refresh, and it fills the screen. The headline stays in the
+top left.
+
+
+RUN IT AGAIN LATER
+------------------
+
+1. Open a terminal in this folder.
+2. npm install
+3. npm run dev
+4. Open the local URL Vite prints (usually http://localhost:5173).
+
+Production build: npm run build
+The finished site is the dist folder. Upload that, or connect the
+repo to Vercel or Netlify and use the same build command.
+
+
+1. THE FRONT PHOTOGRAPH
+-----------------------
+
+This is the one that matters. File name: hero.webp (or .jpg).
+Folder: public/images/
+
+Shoot Flux One with a MacBook on it, wide enough to fill a
+screen. Keep the top left fairly quiet. That is where the
+headline sits. About 2400 x 1600, or a wider 2x of a laptop
+screen (2880 x 1620). The page crops with object-fit: cover.
+
+hero.jpg, wide.jpg, edge.jpg, and signal.jpg are the four
+photographs the page uses.
+
+2. PHOTOGRAPHS
+--------------
+
+Folder: public/images/
+
+The page looks for each name below as .webp, .jpg, .jpeg, .png,
+or .avif, in that order. Use the base name exactly. Until a file
+exists, you will see a quiet poster with the filename in the
+corner so you know which slot it is.
+
+  hero.jpg       Desktop front page. Flux One with a MacBook.
+  wide.jpg       Phone front page, and the large still under
+                 "A desk you can carry."
+  edge.jpg       The edge, in the gallery.
+  signal.jpg     The lights, in the gallery.
+
+These four are the whole set. The page does not ask for more.
+A shared link uses hero.jpg as the preview.
+
+Suggested shoot: soft daylight from one side, real table, lots of
+empty space, sRGB, long edge around 2400px. Do not bake captions
+into the photo. The page adds them.
+
+Want a different caption? Edit the title fields in src/config.ts
+(wideShot and gallery).
+
+
+3. PRE-ORDER FORM  (do this before you send the link to anyone)
+----------------------------------------------------------------
+
+Right now the form works on your machine only. A request is saved
+in that browser (localStorage key: flux-preorders). Nobody else
+can send you the name. The gray line under the button says so,
+and it goes away once this is connected.
+
+  a. Create a form at https://formspree.io (or any endpoint that
+     accepts a JSON POST).
+  b. Copy .env.example to a new file named .env.local
+  c. Set the value:
+
+       VITE_PREORDER_ENDPOINT=https://formspree.io/f/your-id
+
+  d. Stop the dev server and start it again. Vite only reads
+     env files at startup.
+
+The JSON fields sent are: name, email, use, quantity, product.
+
+If you already have a checkout page instead, set preorderUrl in
+src/config.ts to the full https URL. The nav and hero buttons
+will open that. The form on this page stays either way.
+
+Nothing on this page charges a card. Do not tell people it does
+until a real checkout exists.
+
+There is a hidden "company" field. If it gets filled, the submit
+is ignored. Leave it alone.
+
+
+4. REAL SPECS YOU STILL NEED TO GIVE ME, OR TYPE IN YOURSELF
+-------------------------------------------------------------
+
+I only used what you told me: 99.6 Wh, up to 14 hours, MacBook
+form factor, built-in SIM hotspot, a charging station for work
+and study anywhere.
+
+I did not invent a price, output wattage, ports, weight,
+thickness, colors, carrier, data plan, or ship date. Those will
+look made up if I guess.
+
+When you know them, edit src/config.ts:
+
+  price            Shows on the pre-order section when not empty.
+  specs            Add rows. Each row is { label, value }.
+  specsNote        Small print under the list. Put the battery
+                   test conditions here when you have them
+                   (which laptop, screen brightness, and so on).
+  contactEmail     Shows in the footer.
+  socials          { label, href } objects. Empty means no icons
+                   and no fake accounts.
+  copy             Every headline and paragraph.
+  people           The three audience columns.
+  features         Power, Signal, Form.
+  marquee          The moving line of words.
+  useCases         The chips on the form.
+
+The hero counters (99.6 and 14) are separate from the spec list.
+They live in src/components/Hero.tsx. If those numbers change,
+change them there too.
+
+
+5. BRAND FILES
+--------------
+
+  public/favicon.svg          Replace with your mark if you have one.
+  public/site.webmanifest     Name and colors, if you rename the product.
+  index.html                  Page title, description, and the
+                              share text (og:title, og:description).
+  src/index.css               Colors are the variables at the top:
+                              --bg, --bg-soft, --ink, --muted.
+
+
+6. CHECK THIS IN THE BROWSER BEFORE YOU SHOW IT
+------------------------------------------------
+
+  - Drag the mat. It should turn smoothly and then resume.
+  - Scroll the whole page with the pointer over the model.
+    The page should still scroll. Zoom on the model is off
+    on purpose so the wheel never gets stuck.
+  - Narrow the window to a phone width. Open the menu.
+  - Submit the pre-order form with a bad email, then a real one.
+  - After your GLB is in, look at the underside and the edges.
+    Fix rotation and fit in src/config.ts until it sits flat.
+  - After your photos are in, hover them. They should drift
+    slightly, not jump.
+
+
+7. IF THE MODEL LOOKS WRONG
+----------------------------
+
+  On its side          scene.rotation
+  Too small or large   scene.fit
+  Too shiny            scene.envIntensity (try 0.35)
+  Camera too close     scene.cameraPosition, pull the numbers up
+  Gray clay            The export had no materials. Re-export
+                       with appearances, or assign them in Blender.
+  Huge file, stutter   Decimate, then Draco. Aim for well under
+                       a few hundred thousand triangles.
+
+
+That is the whole list. Copy, specs, price, and the 3D knobs
+are in src/config.ts. Images go in public/images. The model
+goes in public/models/flux-one.glb.
