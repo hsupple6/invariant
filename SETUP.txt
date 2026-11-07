@@ -1,4 +1,4 @@
-FLUX ONE — WHAT YOU NEED TO ADD
+INVARIANT — WHAT YOU NEED TO ADD
 ================================
 
 The site is a white, single-page landing page. It already runs.
@@ -26,7 +26,7 @@ repo to Vercel or Netlify and use the same build command.
 This is the one that matters. File name: hero.webp (or .jpg).
 Folder: public/images/
 
-Shoot Flux One with a MacBook on it, wide enough to fill a
+Shoot invariant.one with a MacBook on it, wide enough to fill a
 screen. Keep the top left fairly quiet. That is where the
 headline sits. About 2400 x 1600, or a wider 2x of a laptop
 screen (2880 x 1620). The page crops with object-fit: cover.
@@ -44,7 +44,7 @@ or .avif, in that order. Use the base name exactly. Until a file
 exists, you will see a quiet poster with the filename in the
 corner so you know which slot it is.
 
-  hero.jpg       Desktop front page. Flux One with a MacBook.
+  hero.jpg       Desktop front page. invariant.one with a MacBook.
   wide.jpg       Phone front page, and the large still under
                  "A desk you can carry."
   edge.jpg       The edge, in the gallery.
@@ -65,7 +65,7 @@ Want a different caption? Edit the title fields in src/config.ts
 ----------------------------------------------------------------
 
 Right now the form works on your machine only. A request is saved
-in that browser (localStorage key: flux-preorders). Nobody else
+in that browser (localStorage key: invariant-preorders). Nobody else
 can send you the name. The gray line under the button says so,
 and it goes away once this is connected.
 

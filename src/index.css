@@ -465,6 +465,8 @@ h2 {
 .hero .eyebrow {
   margin-bottom: 10px;
   color: rgba(255, 255, 255, 0.62);
+  text-transform: none;
+  letter-spacing: -0.02em;
 }
 
 .hero .lede {

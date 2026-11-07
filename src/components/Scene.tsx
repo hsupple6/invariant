@@ -241,7 +241,7 @@ function Product({ url }: { url: string | null }) {
     <Boundary
       fallback={<ProceduralMat />}
       onError={() => {
-        console.warn('Flux model failed to load. Showing the stand-in mat.')
+        console.warn('Model failed to load. Showing the stand-in mat.')
       }}
     >
       <Suspense fallback={null}>

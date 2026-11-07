@@ -48,7 +48,7 @@ export function Preorder() {
       email: trimmedEmail,
       use: useCase,
       quantity,
-      product: 'Flux One',
+      product: 'invariant.one',
     }
 
     try {
@@ -60,7 +60,7 @@ export function Preorder() {
         })
         if (!res.ok) throw new Error('Request failed')
       } else {
-        const key = 'flux-preorders'
+        const key = 'invariant-preorders'
         const previous = JSON.parse(localStorage.getItem(key) || '[]') as unknown[]
         previous.push({ ...payload, at: new Date().toISOString() })
         localStorage.setItem(key, JSON.stringify(previous))
@@ -93,7 +93,7 @@ export function Preorder() {
                 >
                   <p className="eyebrow">You're on the list</p>
                   <h3>We'll write to {email.trim()}.</h3>
-                  <p className="lede">Nothing was charged. This is a request for the first run of Flux One.</p>
+                  <p className="lede">Nothing was charged. This is a request for the first run of invariant.one.</p>
                 </motion.div>
               ) : (
                 <motion.form key="form" onSubmit={onSubmit} noValidate>

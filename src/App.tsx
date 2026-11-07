@@ -34,7 +34,7 @@ export default function App() {
             animate={{ opacity: 0 }}
             transition={{ duration: 0.35, delay: 0.18, ease }}
           >
-            Flux
+            Invariant
           </motion.span>
         </motion.div>
       )}

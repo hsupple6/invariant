@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section className="hero" id="top">
       {src ? (
-        <img className="hero-photo" src={src} alt="Flux One with a MacBook" />
+        <img className="hero-photo" src={src} alt="invariant.one with a MacBook" />
       ) : (
         <div className="hero-photo hero-photo-empty">
           {settled ? <span>hero.webp</span> : null}
@@ -41,7 +41,7 @@ export function Hero() {
       )}
       <div className="hero-mobile-frame">
         {wide.src ? (
-          <img className="hero-photo-mobile" src={wide.src} alt="Flux One on the table" />
+          <img className="hero-photo-mobile" src={wide.src} alt="invariant.one on the table" />
         ) : (
           <div className="hero-photo-mobile hero-photo-empty">
             {wide.settled ? <span>wide.jpg</span> : null}
@@ -90,7 +90,7 @@ export function Hero() {
             onClick={preorder}
             {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
           >
-            Pre-order Flux One <span className="arrow" aria-hidden="true">→</span>
+            Pre-order invariant.one <span className="arrow" aria-hidden="true">→</span>
           </a>
           <a className="btn btn-ghost" href="#specs" onClick={specs}>
             See the specs

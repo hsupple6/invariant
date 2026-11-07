@@ -61,7 +61,7 @@ export const features = [
   {
     index: '02',
     title: 'Signal',
-    body: 'A SIM lives in Flux One. It is the hotspot. You are not waiting on whatever network happens to be in the room.',
+    body: 'A SIM lives in invariant.one. It is the hotspot. You are not waiting on whatever network happens to be in the room.',
   },
   {
     index: '03',
@@ -105,10 +105,10 @@ export const gallery: Shot[] = [
 ]
 
 export const copy = {
-  heroEyebrow: 'Flux One',
+  heroEyebrow: 'invariant.one',
   heroTitle: ['The office', 'that fits', 'in a bag.'],
   heroBody:
-    'Flux One is a charging mat shaped for your MacBook. 99.6 Wh of power. Up to 14 hours of extra battery. A SIM of its own, so the hotspot is already with you.',
+    'invariant.one is a charging mat shaped for your MacBook. 99.6 Wh of power. Up to 14 hours of extra battery. A SIM of its own, so the hotspot is already with you.',
   statementTitle: 'A desk you can carry.',
   statementBody:
     'It takes the footprint of your laptop and quietly adds a battery and a network. Coffee shop, campus, gate, kitchen table. Work, study, or stay a little longer.',
@@ -116,14 +116,14 @@ export const copy = {
   signalEyebrow: 'Hotspot',
   signalTitle: 'Online before you ask for the password.',
   signalBody:
-    'Cafe wifi is a coin toss. Flux One brings its own SIM, and your laptop joins the mat. The connection travels with the power.',
+    'Cafe wifi is a coin toss. invariant.one brings its own SIM, and your laptop joins the mat. The connection travels with the power.',
   galleryEyebrow: 'The object',
   galleryTitle: 'Quiet enough to leave on the table.',
   audienceEyebrow: 'Who it is for',
   audienceTitle: 'For the work that moves.',
   audienceBody: 'And anyone who works from a table that is not theirs.',
   preorderEyebrow: 'First run',
-  preorderTitle: 'Pre-order Flux One.',
+  preorderTitle: 'Pre-order invariant.one.',
   preorderBody:
     'Leave your name. We will write when the first run is ready. Nothing is charged from this page.',
   footerNote: 'Pre-order requests are not a charge.',

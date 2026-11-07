@@ -18,7 +18,7 @@ export function Footer() {
     <footer className="footer">
       <div className="wrap footer-row">
         <p>
-          © {year} Flux. {copy.footerNote}
+          © {year} Invariant. {copy.footerNote}
         </p>
         <nav aria-label="Footer">
           <a href={preorderUrl || '#preorder'} onClick={(event) => go(event, '#preorder')}>
@@ -36,7 +36,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="ender-wrap" aria-hidden="true">
-        <p className="ender">Flux</p>
+        <p className="ender">Invariant</p>
       </div>
     </footer>
   )

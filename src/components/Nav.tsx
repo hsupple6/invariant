@@ -51,7 +51,7 @@ export function Nav() {
       <header className={scrolled || open ? 'nav scrolled' : 'nav'}>
         <a className="wordmark" href="#top" onClick={(event) => go(event, '#top')}>
           <span className="mark" aria-hidden="true" />
-          Flux
+          Invariant
         </a>
         <nav className="nav-links" aria-label="Primary">
           {links.map((link) => (
@@ -112,7 +112,7 @@ export function Nav() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.45, delay: 0.28, ease }}
             >
-              Pre-order Flux One
+              Pre-order invariant.one
             </motion.a>
           </motion.nav>
         )}
