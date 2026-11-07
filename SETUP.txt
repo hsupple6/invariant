@@ -45,10 +45,9 @@ exists, you will see a quiet poster with the filename in the
 corner so you know which slot it is.
 
   hero.jpg       Desktop front page. invariant.one with a MacBook.
-  wide.jpg       Phone front page, and the large still under
-                 "A desk you can carry."
-  edge.jpg       The edge, in the gallery.
-  signal.jpg     The lights, in the gallery.
+  wide.jpg       Phone front page, and the first photo in the slider.
+  edge.jpg       Last photo in the slider.
+  signal.jpg     Second photo in the slider.
 
 These four are the whole set. The page does not ask for more.
 A shared link uses hero.jpg as the preview.
@@ -58,7 +57,7 @@ empty space, sRGB, long edge around 2400px. Do not bake captions
 into the photo. The page adds them.
 
 Want a different caption? Edit the title fields in src/config.ts
-(wideShot and gallery).
+on slides.
 
 
 3. PRE-ORDER FORM  (do this before you send the link to anyone)
@@ -66,8 +65,8 @@ Want a different caption? Edit the title fields in src/config.ts
 
 Right now the form works on your machine only. A request is saved
 in that browser (localStorage key: invariant-preorders). Nobody else
-can send you the name. The gray line under the button says so,
-and it goes away once this is connected.
+can send you the name. The line under the button says nothing is charged.
+Connect the form before anyone else uses the page.
 
   a. Create a form at https://formspree.io (or any endpoint that
      accepts a JSON POST).
@@ -96,8 +95,8 @@ is ignored. Leave it alone.
 -------------------------------------------------------------
 
 I only used what you told me: 99.6 Wh, up to 14 hours, MacBook
-form factor, built-in SIM hotspot, a charging station for work
-and study anywhere.
+form factor, a personal SIM hotspot, and it charges all your
+devices.
 
 I did not invent a price, output wattage, ports, weight,
 thickness, colors, carrier, data plan, or ship date. Those will
@@ -105,7 +104,7 @@ look made up if I guess.
 
 When you know them, edit src/config.ts:
 
-  price            Shows on the pre-order section when not empty.
+  price            Shows on the pre-order card when not empty.
   specs            Add rows. Each row is { label, value }.
   specsNote        Small print under the list. Put the battery
                    test conditions here when you have them
@@ -113,15 +112,11 @@ When you know them, edit src/config.ts:
   contactEmail     Shows in the footer.
   socials          { label, href } objects. Empty means no icons
                    and no fake accounts.
-  copy             Every headline and paragraph.
-  people           The three audience columns.
-  features         Power, Signal, Form.
-  marquee          The moving line of words.
+  slides           The photos under the hero, and their captions.
+  copy             The hero line, the short description, and the form.
   useCases         The chips on the form.
 
-The hero counters (99.6 and 14) are separate from the spec list.
-They live in src/components/Hero.tsx. If those numbers change,
-change them there too.
+The numbers live in specs. Change them there.
 
 
 5. BRAND FILES
@@ -138,31 +133,20 @@ change them there too.
 6. CHECK THIS IN THE BROWSER BEFORE YOU SHOW IT
 ------------------------------------------------
 
-  - Drag the mat. It should turn smoothly and then resume.
-  - Scroll the whole page with the pointer over the model.
-    The page should still scroll. Zoom on the model is off
-    on purpose so the wheel never gets stuck.
-  - Narrow the window to a phone width. Open the menu.
+  - The page is the hero, then photos, a short description,
+    the specs, and the pre-order form.
+  - The slider arrows and dots should change the photo.
+  - Narrow the window to a phone width. The form sits under
+    the photos.
   - Submit the pre-order form with a bad email, then a real one.
-  - After your GLB is in, look at the underside and the edges.
-    Fix rotation and fit in src/config.ts until it sits flat.
-  - After your photos are in, hover them. They should drift
-    slightly, not jump.
 
 
-7. IF THE MODEL LOOKS WRONG
-----------------------------
+7. THE MODEL
+------------
 
-  On its side          scene.rotation
-  Too small or large   scene.fit
-  Too shiny            scene.envIntensity (try 0.35)
-  Camera too close     scene.cameraPosition, pull the numbers up
-  Gray clay            The export had no materials. Re-export
-                       with appearances, or assign them in Blender.
-  Huge file, stutter   Decimate, then Draco. Aim for well under
-                       a few hundred thousand triangles.
+The photograph is the front of the page. The 3D file can stay in
+public/models/flux-one.glb. It is not shown.
 
 
-That is the whole list. Copy, specs, price, and the 3D knobs
-are in src/config.ts. Images go in public/images. The model
-goes in public/models/flux-one.glb.
+That is the whole list. Copy, specs, price, and the slider
+are in src/config.ts. Images go in public/images.

@@ -35,9 +35,6 @@ export function Footer() {
           ))}
         </nav>
       </div>
-      <div className="ender-wrap" aria-hidden="true">
-        <p className="ender">Invariant</p>
-      </div>
     </footer>
   )
 }

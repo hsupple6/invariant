@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { copy, preorderUrl } from '../config'
 import { useAsset } from '../hooks/useAsset'
 import { ease } from '../motion'
-import { Count } from './Count'
 import { useLenis } from './SmoothScroll'
 
 export function Hero() {
@@ -11,7 +10,6 @@ export function Hero() {
   const { src, settled } = useAsset('/images/hero')
   const wide = useAsset('/images/wide')
   const external = Boolean(preorderUrl)
-
 
   function preorder(event: React.MouseEvent<HTMLAnchorElement>) {
     if (external) return
@@ -22,22 +20,12 @@ export function Hero() {
     else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' })
   }
 
-  function specs(event: React.MouseEvent<HTMLAnchorElement>) {
-    event.preventDefault()
-    const el = document.getElementById('specs')
-    if (!el) return
-    if (lenis) lenis.scrollTo(el, { offset: -84 })
-    else el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' })
-  }
-
   return (
     <section className="hero" id="top">
       {src ? (
         <img className="hero-photo" src={src} alt="invariant.one with a MacBook" />
       ) : (
-        <div className="hero-photo hero-photo-empty">
-          {settled ? <span>hero.webp</span> : null}
-        </div>
+        <div className="hero-photo hero-photo-empty">{settled ? <span>hero.webp</span> : null}</div>
       )}
       <div className="hero-mobile-frame">
         {wide.src ? (
@@ -92,32 +80,6 @@ export function Hero() {
           >
             Pre-order invariant.one <span className="arrow" aria-hidden="true">→</span>
           </a>
-          <a className="btn btn-ghost" href="#specs" onClick={specs}>
-            See the specs
-          </a>
-        </motion.div>
-        <motion.div
-          className="hero-stats"
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-        >
-          <div>
-            <strong>
-              <Count to={99.6} decimals={1} />
-            </strong>
-            <span>Wh onboard</span>
-          </div>
-          <div>
-            <strong>
-              <Count to={14} />
-            </strong>
-            <span>hours, up to</span>
-          </div>
-          <div>
-            <strong>SIM</strong>
-            <span>hotspot built in</span>
-          </div>
         </motion.div>
       </div>
     </section>

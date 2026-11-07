@@ -1,16 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ease } from './motion'
-import { Audience } from './components/Audience'
-import { Features } from './components/Features'
 import { Footer } from './components/Footer'
-import { Gallery } from './components/Gallery'
 import { Hero } from './components/Hero'
-import { Marquee } from './components/Marquee'
 import { Nav } from './components/Nav'
 import { Preorder } from './components/Preorder'
-import { Signal } from './components/Signal'
-import { Specs } from './components/Specs'
-import { Statement } from './components/Statement'
 import { SmoothScroll } from './components/SmoothScroll'
 
 export default function App() {
@@ -41,13 +34,6 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <Marquee />
-        <Statement />
-        <Features />
-        <Specs />
-        <Signal />
-        <Gallery />
-        <Audience />
         <Preorder />
       </main>
       <Footer />
