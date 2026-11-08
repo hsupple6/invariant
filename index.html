@@ -24,7 +24,23 @@
       href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap"
       rel="stylesheet"
     />
+
     <title>invariant.one — Invariant</title>
+    <script>
+      ;(function () {
+        var path = location.pathname.replace(/\/+$/, '')
+        if (path === '/screen' || path.endsWith('/screen')) {
+          document.title = 'Behind the screen — Invariant'
+          var desc = document.querySelector('meta[name="description"]')
+          if (desc) {
+            desc.setAttribute(
+              'content',
+              'A power bank that sits behind your screen. It charges all your devices and brings a personal SIM hotspot. 99.6 Wh, up to 14 hours of extra battery.',
+            )
+          }
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

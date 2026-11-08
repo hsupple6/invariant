@@ -60,6 +60,42 @@ Want a different caption? Edit the title fields in src/config.ts
 on slides.
 
 
+
+THE SCREEN PAGE
+---------------
+
+Same layout, second product. This one is a power bank that sits
+behind the screen, not under the MacBook.
+
+Open it at /screen
+  http://localhost:5173/screen
+
+The footer on each page links to the other.
+
+Photographs for this page go in:
+
+  public/images/screen/
+
+Same four names as the mat. The page looks for .webp, then .jpg,
+.jpeg, .png, or .avif.
+
+  hero.jpg       Desktop front page. The power bank behind a
+                 screen. Leave the top right light and empty.
+                 That is where the headline sits, in dark type.
+                 About 2400 x 1600, or 2880 x 1620. The page
+                 crops with object-fit: cover.
+  wide.jpg       Phone front page, and the first slider photo.
+  signal.jpg     Second photo in the slider.
+  edge.jpg       Last photo in the slider.
+
+Do not bake captions into the photos. A shared link to /screen
+uses hero.jpg as the preview.
+
+Copy for this page is the screen object in src/config.ts.
+The mat stays the mat object. Pre-order requests for this page
+are tagged behind-screen.
+
+
 3. PRE-ORDER FORM  (do this before you send the link to anyone)
 ----------------------------------------------------------------
 
@@ -149,4 +185,5 @@ public/models/flux-one.glb. It is not shown.
 
 
 That is the whole list. Copy, specs, price, and the slider
-are in src/config.ts. Images go in public/images.
+are in src/config.ts. Mat images go in public/images.
+Screen images go in public/images/screen.

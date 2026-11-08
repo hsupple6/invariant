@@ -1432,3 +1432,29 @@ h2 {
     transition: none;
   }
 }
+@media (min-width: 981px) {
+  .hero-screen .hero-copy {
+    left: auto;
+    right: clamp(48px, 5.5vw, 96px);
+    width: min(420px, 32vw);
+    color: #0c0c0d;
+  }
+
+  .hero-screen .eyebrow {
+    color: #6e6e73;
+  }
+
+  .hero-screen .lede {
+    color: #3a3a3c;
+  }
+
+  .hero-screen .btn-primary,
+  .hero-screen .btn-primary:hover {
+    background: #0c0c0d;
+    color: #fff;
+  }
+
+  .hero-screen .hero-photo {
+    object-position: center center;
+  }
+}

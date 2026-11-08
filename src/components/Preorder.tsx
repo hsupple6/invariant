@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type PointerEvent } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { copy, price, slides, specs, specsNote, useCases } from '../config'
+import { price, shotLabel, useCases } from '../config'
+import { useProduct } from '../product'
 import { useAsset } from '../hooks/useAsset'
 import { ease } from '../motion'
 import { Reveal } from './Reveal'
@@ -20,7 +21,8 @@ function Slide({
   position: string
   active: boolean
 }) {
-  const { src, settled } = useAsset(`/images/${file}`)
+  const product = useProduct()
+  const { src, settled } = useAsset(`${product.images}/${file}`)
   if (src) {
     return (
       <img
@@ -34,12 +36,14 @@ function Slide({
   }
   return (
     <div className={active ? 'slider-empty is-active' : 'slider-empty'} aria-hidden={!active}>
-      {settled && active ? <span>{file}.jpg</span> : null}
+      {settled && active ? <span>{shotLabel(product.images, file)}</span> : null}
     </div>
   )
 }
 
 function Slider() {
+  const product = useProduct()
+  const { slides } = product
   const [narrow, setNarrow] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(max-width: 980px)').matches,
   )
@@ -90,7 +94,7 @@ function Slider() {
         onKeyDown={onKey}
         role="group"
         aria-roledescription="carousel"
-        aria-label="invariant.one"
+        aria-label={product.name}
       >
         {items.map((slide, slideIndex) => (
           <Slide
@@ -131,6 +135,8 @@ function Slider() {
   )
 }
 export function Preorder() {
+  const product = useProduct()
+  const { copy, specs, specsNote } = product
   const reduce = useReducedMotion()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -170,7 +176,7 @@ export function Preorder() {
       email: trimmedEmail,
       use: useCase,
       quantity,
-      product: 'invariant.one',
+      product: product.id,
     }
 
     try {
@@ -182,7 +188,7 @@ export function Preorder() {
         })
         if (!res.ok) throw new Error('Request failed')
       } else {
-        const key = 'invariant-preorders'
+        const key = product.storageKey
         const previous = JSON.parse(localStorage.getItem(key) || '[]') as unknown[]
         previous.push({ ...payload, at: new Date().toISOString() })
         localStorage.setItem(key, JSON.stringify(previous))
@@ -226,7 +232,7 @@ export function Preorder() {
                   >
                     <p className="eyebrow">You're on the list</p>
                     <h2 className="form-title">We'll write to you.</h2>
-                    <p className="lede">Nothing was charged. This is a request for the first run of invariant.one.</p>
+                    <p className="lede">{copy.doneBody}</p>
                   </motion.div>
                 ) : (
                   <motion.form key="form" onSubmit={onSubmit} noValidate>

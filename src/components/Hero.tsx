@@ -1,14 +1,17 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { copy, preorderUrl } from '../config'
+import { preorderUrl } from '../config'
+import { useProduct } from '../product'
 import { useAsset } from '../hooks/useAsset'
 import { ease } from '../motion'
 import { useLenis } from './SmoothScroll'
 
 export function Hero() {
+  const product = useProduct()
+  const { copy } = product
   const reduce = useReducedMotion()
   const lenis = useLenis()
-  const { src, settled } = useAsset('/images/hero')
-  const wide = useAsset('/images/wide')
+  const { src, settled } = useAsset(`${product.images}/hero`)
+  const wide = useAsset(`${product.images}/wide`)
   const external = Boolean(preorderUrl)
 
   function preorder(event: React.MouseEvent<HTMLAnchorElement>) {
@@ -21,18 +24,18 @@ export function Hero() {
   }
 
   return (
-    <section className="hero" id="top">
+    <section className={product.heroSide === 'right' ? 'hero hero-screen' : 'hero'} id="top">
       {src ? (
-        <img className="hero-photo" src={src} alt="invariant.one with a MacBook" />
+        <img className="hero-photo" src={src} alt={copy.heroAlt} />
       ) : (
-        <div className="hero-photo hero-photo-empty">{settled ? <span>hero.webp</span> : null}</div>
+        <div className="hero-photo hero-photo-empty">{settled ? <span>{copy.heroFile}</span> : null}</div>
       )}
       <div className="hero-mobile-frame">
         {wide.src ? (
-          <img className="hero-photo-mobile" src={wide.src} alt="invariant.one on the table" />
+          <img className="hero-photo-mobile" src={wide.src} alt={copy.heroMobileAlt} />
         ) : (
           <div className="hero-photo-mobile hero-photo-empty">
-            {wide.settled ? <span>wide.jpg</span> : null}
+            {wide.settled ? <span>{copy.wideFile}</span> : null}
           </div>
         )}
       </div>
@@ -78,7 +81,7 @@ export function Hero() {
             onClick={preorder}
             {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
           >
-            Pre-order invariant.one <span className="arrow" aria-hidden="true">→</span>
+            {copy.preorderCta} <span className="arrow" aria-hidden="true">→</span>
           </a>
         </motion.div>
       </div>
